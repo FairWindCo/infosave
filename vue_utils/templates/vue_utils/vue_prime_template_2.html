@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>{% block title %}Мониторинговый центр{% endblock %}</title>
+    {% block css_header_content %}
+        <!-- import CSS -->
+        {% block css_header_primevue %}
+            <link rel="stylesheet" href="{% static 'vue_utils/prime-icons/primeicons.css' %}">
+            <link rel="stylesheet" href="{% static 'vue_utils/primevue/css/primevue.min.css' %}">
+            <link rel="stylesheet" href="{% static 'vue_utils/primevue/css/nova/theme.min.css' %}">
+        {% endblock %}
+        {% block css_header_primeflex %}
+            <link rel="stylesheet" href="{% static 'vue_utils/primeflex/primeflex.min.css' %}">
+        {% endblock %}
+        {% block css_header_extend %}
+        {% endblock %}
+    {% endblock %}
+    {% block js_header_content %}
+        <!-- import JavaScript -->
+        {% block js_header_vue %}
+            <script src="{% static 'vue_utils/vue/vue.global.js' %}"></script>
+        {% endblock %}
+        {% block js_header_primevue %}
+            <script src="{% static 'vue_utils/primevue/js/utils.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/api.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/ripple.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/autocomplete.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/accordion.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/accordiontab.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/avatar.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/avatargroup.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/menu.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/megamenu.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/multiselect.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/scrollpanel.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/button.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/breadcrumb.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/calendar.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/card.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/cascadeselect.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/chart.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/checkbox.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/chip.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/chips.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/inlinemessage.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/contextmenu.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/utils.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/togglebutton.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/dialog.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/tooltip.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/tag.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/column.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/row.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/datatable.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/dataview.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/dataviewlayoutoptions.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/fullcalendar.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/confirmdialog.min.js' %}"></script>
+            <script src="{% static 'vue_utils/primevue/js/confirmpopup.min.js' %}"></script>
+        {% endblock %}
+        {% block js_header_extend %}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+<div class="container" id="APP">
+    {% block main_content %}
+        <header class="blog-header py-3 bd-navbar noprint">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="dropdown col-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fas fa-align-justify"></span>
+                    </button>
+                    <nav class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% block navigation_content %}
+                        {% endblock %}
+                    </nav>
+                </div>
+                <div class="col-6 text-center">
+                    {% block page_title %}
+                    {% endblock %}
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            {% block content %}
+                <el-button>TEST</el-button>
+            {% endblock %}
+        </div>
+    {% endblock %}
+</div>
+{% block css_footer %}
+{% endblock %}
+{% block js_footer %}
+{% endblock %}
+{% block vue_app_config %}
+    <script>
+        const APP_CONFIG = {}
+    </script>
+{% endblock %}
+{% block vue_app_init %}
+    <script>
+        const app = Vue.createApp(APP_CONFIG)
+        window.main_app = app;
+        app.use(ElementPlus, {size: 'small', zIndex: 3000});
+    </script>
+{% endblock %}
+{% block vue_app %}
+    <script>
+        window.main_app.mount('#APP')
+    </script>
+{% endblock %}
+</body>
+</html>
