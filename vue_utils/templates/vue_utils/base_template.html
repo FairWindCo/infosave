@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>{% block title %}Мониторинговый центр{% endblock %}</title>
+    {% block css_header_content %}
+        <!-- import CSS -->
+        {% block css_header_bootstrap %}
+            <link rel="stylesheet" href="{% static 'vue_utils/bootstrap-5/css/bootstrap.min.css' %}">
+        {% endblock %}
+        {% block css_header_extend %}
+        {% endblock %}
+    {% endblock %}
+    {% block js_header_content %}
+        <!-- import JavaScript -->
+        {% block js_header_fontawesome %}
+            <script src="https://kit.fontawesome.com/4c4a7dca97.js"></script>
+        {% endblock %}
+        {% block js_header_bootstrap %}
+            <script src="{% static 'vue_utils/bootstrap-5/js/bootstrap.bundle.min.js' %}"></script>
+        {% endblock %}
+        {% block js_header_extend %}
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% block body_content %}
+{% endblock %}
+</body>
+</html>
