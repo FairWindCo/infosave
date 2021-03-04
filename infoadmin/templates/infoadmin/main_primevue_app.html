@@ -3,20 +3,22 @@
 
 {% block main_content %}
     <div id="APP">
-        <div class="p-grid">
-            <div class="p-col-4">
-                <p-inputtext v-model="test_value"></p-inputtext>
+        <p-panel header="Header Panel">
+            <div class="p-grid">
+                <div class="p-col-4">
+                    <p-inputtext v-model="test_value"></p-inputtext>
+                </div>
+                <div class="p-col">
+                    <p-inputnumber v-model="test_value"></p-inputnumber>
+                </div>
+                <div class="p-col">
+                    <p-button label="Submit" icon="pi pi-check"/>
+                </div>
+                <div class="p-col-2">
+                    <p-splitbtn label="Save" icon="pi pi-plus" :model="items"></p-splitbtn>
+                </div>
             </div>
-            <div class="p-col">
-                <p-inputnumber v-model="test_value"></p-inputnumber>
-            </div>
-            <div class="p-col">
-                <btn label="Submit" icon="pi pi-check"/>
-            </div>
-            <div class="p-col-2">
-                <splitbtn label="Save" icon="pi pi-plus" :model="items"></splitbtn>
-            </div>
-        </div>
+        </p-panel>
     </div>
 {% endblock %}
 
@@ -50,10 +52,28 @@
                 }
             },
             components: {
-                'btn': primevue.button,
+                'p-button': primevue.button,
                 'p-inputtext': primevue.inputtext,
+                'p-checkbox': primevue.checkbox,
                 'p-inputnumber': primevue.inputnumber,
-                'splitbtn': primevue.splitbutton,
+                'p-inputmask': primevue.inputmask,
+                'p-inputswitch': primevue.inputswitch,
+                'p-password': primevue.password,
+                'p-radiobutton': primevue.radiobutton,
+                'p-menu': primevue.menu,
+                'p-splitbtn': primevue.splitbutton,
+                'p-sidebar': primevue.sidebar,
+                'p-dialog': primevue.dialog,
+                'p-inlinemessage': primevue.inlinemessage,
+                'p-calendar': primevue.calendar,
+                'p-selectbutton': primevue.selectbutton,
+                'p-slider': primevue.slider,
+                'p-togglebutton': primevue.togglebutton,
+                'p-tristatecheckbox': primevue.tristatecheckbox,
+                'p-paginator': primevue.paginator,
+                'p-tooltip': primevue.tooltip,
+                'p-message': primevue.message,
+                'p-panel': primevue.panel,
                 'tab-list': {
                     delimiters: ["@{", "}@"],
                     props: ["device_data", "open_dialog"],

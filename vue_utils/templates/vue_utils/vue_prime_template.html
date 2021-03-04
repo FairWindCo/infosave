@@ -18,6 +18,9 @@
         {% block css_header_primeflex %}
             <link rel="stylesheet" href="{% static 'vue_utils/primeflex/primeflex.min.css' %}">
         {% endblock %}
+        {% block css_header_theme %}
+            <link rel="stylesheet" href="{% static 'vue_utils/theme.css' %}">
+        {% endblock %}
         {% block css_header_extend %}
         {% endblock %}
     {% endblock %}
@@ -30,61 +33,151 @@
             <script src="{% static 'vue_utils/asiox/axios.min.js' %}"></script>
         {% endblock %}
         {% block js_header_primevue %}
-            <script src="{% static 'vue_utils/primevue/js/utils.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/ripple.min.js' %}"></script>
+            {% if primevue_base is None or primevue_base %}
+                {% block js_header_primevue_base %}
+                    <script src="{% static 'vue_utils/primevue/js/utils.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/ripple.min.js' %}"></script>
 
-            <script src="{% static 'vue_utils/primevue/js/checkbox.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/cascadeselect.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/button.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/inputtext.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/inputnumber.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/inputmask.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/inputswitch.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/password.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/radiobutton.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/menu.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/splitbutton.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/sidebar.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/dialog.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/confirmdialog.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/inlinemessage.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/textarea.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/calendar.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/selectbutton.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/slider.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/togglebutton.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/tristatecheckbox.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/checkbox.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/cascadeselect.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/button.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inputtext.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inputnumber.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inputmask.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inputswitch.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/password.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/radiobutton.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/menu.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/splitbutton.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/sidebar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/dialog.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inlinemessage.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/textarea.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/calendar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/selectbutton.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/slider.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/togglebutton.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tristatecheckbox.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/paginator.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tooltip.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/message.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_menu is None or primevue_menu %}
+                {% block js_header_primevue_menu %}
+                    <script src="{% static 'vue_utils/primevue/js/breadcrumb.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/contextmenu.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/megamenu.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/panelmenu.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tabmenu.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/steps.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/menubar.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_panels is None or primevue_panels %}
+                {% block js_header_primevue_panels %}
+                    <script src="{% static 'vue_utils/primevue/js/deferredcontent.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/panel.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/accordion.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/accordiontab.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/card.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/splitter.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/splitterpanel.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tabview.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/toolbar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/fileupload.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_listings is None or primevue_listings %}
+                {% block js_header_primevue_listings %}
+                    <script src="{% static 'vue_utils/primevue/js/api.min.js' %}"></script>
+                    <script>
+                        //api = primevue.api
+                    </script>
+                    <script src="{% static 'vue_utils/primevue/js/listbox.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/dropdown.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/multiselect.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_datatable is None or primevue_datatable %}
+                {% block js_header_primevue_datatable %}
+                    <script src="{% static 'vue_utils/primevue/js/datatable.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/dataview.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/dataviewlayoutoptions.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/orderlist.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/picklist.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/timeline.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tree.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/treetable.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_additional is None or primevue_additional %}
+                {% block js_header_primevue_additional %}
+                    <script src="{% static 'vue_utils/primevue/js/knob.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/rating.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/chip.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/chips.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/colorpicker.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/organizationchart.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/avatar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/badgedirective.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/blockui.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/inplace.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/scrolltop.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/skeleton.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/progressbar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/progressspinner.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tag.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_overlay is None or primevue_overlay %}
+                {% block js_header_primevue_overlay %}
+                    <script src="{% static 'vue_utils/primevue/js/dialog.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/sidebar.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/tooltip.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/overlaypanel.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_media is None or primevue_media %}
+                {% block js_header_primevue_media %}
+                    <script src="{% static 'vue_utils/primevue/js/carousel.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/galleria.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if primevue_chart is None or primevue_chart %}
+                {% block js_header_primevue_chart %}
+                    <script src="{% static 'vue_utils/charts/Chart.min.js' %}"></script>
+                    <script src="{% static 'vue_utils/primevue/js/chart.min.js' %}"></script>
+                {% endblock %}
+            {% endif %}
+            {% if mitt is None or mitt or primevue_toast is None or primevue_toast or primevue_confirmation is None or primevue_confirmation or primevue_terminal is None or primevue_terminal %}
+                {% block js_header_mitt %}
+                    <script src="{% static 'vue_utils/mitt/mitt.umd.js' %}"></script>
+                    {% if primevue_toast is None or primevue_toast %}
+                        {% block js_header_primevue_toast %}
+                            <script src="{% static 'vue_utils/primevue/js/toastservice.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/toast.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/usetoast.min.js' %}"></script>
+                        {% endblock %}
+                    {% endif %}
+                    {% if primevue_confirmation is None or primevue_confirmation %}
+                        {% block js_header_primevue_confirmation %}
+                            <script src="{% static 'vue_utils/primevue/js/confirmationservice.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/useconfirm.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/confirmpopup.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/confirmdialog.min.js' %}"></script>
+                        {% endblock %}
+                    {% endif %}
+                    {% if primevue_terminal is None or primevue_terminal %}
+                        {% block js_header_primevue_terminal %}
+                            <script src="{% static 'vue_utils/primevue/js/terminalservice.min.js' %}"></script>
+                            <script src="{% static 'vue_utils/primevue/js/terminal.min.js' %}"></script>
+                        {% endblock %}
+                    {% endif %}
+                {% endblock %}
+            {% endif %}
         {% endblock %}
-        {% block js_header_primevue_panels %}
-            <script src="{% static 'vue_utils/primevue/js/deferredcontent.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/panel.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/accordion.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/accordiontab.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/card.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/splitter.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/splitterpanel.min.js' %}"></script>
-        {% endblock %}
-        {% block js_header_primevue_listings %}
-            <script src="{% static 'vue_utils/primevue/js/api.min.js' %}"></script>
-            <script>
-                //api = primevue.api
-            </script>
-            <script src="{% static 'vue_utils/primevue/js/listbox.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/dropdown.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/multiselect.min.js' %}"></script>
-        {% endblock %}
-        {% block js_header_primevue_datatable %}
-            <script src="{% static 'vue_utils/primevue/js/datatable.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/dataview.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/dataviewlayoutoptions.min.js' %}"></script>
-        {% endblock %}
-        {% block js_header_primevue_additional %}
-            <script src="{% static 'vue_utils/primevue/js/knob.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/rating.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/chip.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/chips.min.js' %}"></script>
-            <script src="{% static 'vue_utils/primevue/js/colorpicker.min.js' %}"></script>
-        {% endblock %}
+
         {% block js_header_extend %}
         {% endblock %}
     {% endblock %}
