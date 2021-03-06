@@ -78,7 +78,7 @@
             {% endif %}
             {% if primevue_listings is None or primevue_listings and primevue_datatable is None or primevue_datatable %}
                 {% block js_header_primevue_datatable %}
-                    {% for module in primevue_datatable|create_default_list:'datatable,dataview,dataviewlayoutoptions,orderlist,picklist,timeline,tree,treetable' %}
+                    {% for module in primevue_datatable|create_default_list:'column,columngroup,row,datatable,dataview,dataviewlayoutoptions,orderlist,picklist,timeline,tree,treetable' %}
                         {% with 'vue_utils/primevue/js//'|add:module|add:'.min.js' as vue_script %}
                             <script src="{% static vue_script %}"></script>
                         {% endwith %}
@@ -183,7 +183,6 @@
             </p-panel>
         {% endblock %}
         <router-view></router-view>
-        </div>
     {% endblock %}
 </div>
 {% block js_body_content %}
@@ -241,7 +240,7 @@
                 {% for module in primevue_menu|create_default_list:'breadcrumb,contextmenu,megamenu,panelmenu,tabmenu,steps,menubar' %}
                     'p-{{ module }}': primevue.{{ module }},
                 {% endfor %}
-                {% for module in primevue_datatable|create_default_list:'datatable,dataview,dataviewlayoutoptions,orderlist,picklist,timeline,tree,treetable' %}
+                {% for module in primevue_datatable|create_default_list:'column,columngroup,row,datatable,dataview,dataviewlayoutoptions,orderlist,picklist,timeline,tree,treetable' %}
                     'p-{{ module }}': primevue.{{ module }},
                 {% endfor %}
                 {% if primevue_chart is None or primevue_chart %}
