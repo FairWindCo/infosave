@@ -31,8 +31,6 @@
     {% block main_content_content %}
         <p-panel header="Header Panel">
             <div class="p-grid">
-                <div class="p-col">@{products_count}@ @{products_page}@ @{products_peg_page}@
-                </div>
                 <div class="p-col-4">
                     <p-inputtext v-model="test_value"></p-inputtext>
                 </div>
@@ -47,8 +45,8 @@
     {% endblock %}
     <router-view></router-view>
     <p-panel>
-        <p-datatable dataKey="id" :value="products" :paginator="true" class="p-datatable-customers" :rows="2"
-                     :loading="loading" :lazy="true"
+        <p-datatable dataKey="id" :value="products" :paginator="true" class="p-datatable-customers" :rows="1"
+                     :loading="loading" :lazy="true" :total-records="products_count"
                      @page="onPage($event)"
                      >
             <p-column field="id" header="ID"></p-column>
@@ -56,6 +54,7 @@
             <p-column field="rolls_count" header="Rolls count"></p-column>
             <p-column field="rolls_processed" header="Rolls Processed"></p-column>
         </p-datatable>
+    <p-paginator page-link-size="10" v-model:first="p_f" :rows="p_rp" :total-records="p_c"></p-paginator>
     </p-panel>
 {% endblock %}
 
@@ -76,6 +75,9 @@
                 products_page: 0,
                 products_peg_page: 2,
                 loading: false,
+                p_c:100,
+                p_f:0,
+                p_rp:10
             }
         }
         my_app.methods['get_index_data_json'] = function () {
